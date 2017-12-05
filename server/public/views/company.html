@@ -1,7 +1,7 @@
 <h1>Companies</h1>
 <input type="text" placeholder="company" ng-model="vm.newCompany.name">
 <input type="text" placeholder="country" ng-model="vm.newCompany.country">
-<button ng-click="vm.addCompany(newCompany)">Submit</button>
+<button ng-click="vm.addCompany(vm.newCompany)">Submit</button>
 <ul>
     <li ng-repeat="company in vm.companies.list">
         {{company.name}} is located in {{company.country}}

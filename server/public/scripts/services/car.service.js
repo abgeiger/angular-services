@@ -18,16 +18,17 @@ app.service('CarService', ['$http', function($http) {
     
     self.getCars();
 
-    // self.addCar = function(newCar) {
-    //     console.log('clicked');
+    self.addCar = function(newCar) {
+        console.log('clicked');
 
-    //     $http({
-    //         method: 'POST',
-    //         url: '/cars',
-    //         data: self.newCar
-    //     }).then(function(response) {
-    //         console.log('response', response);
-    //         self.newCar = {};
-    //     });
-    // };
+        $http({
+            method: 'POST',
+            url: '/cars',
+            data: newCar
+        }).then(function(response) {
+            console.log('response', response);
+            self.newCar = {};
+            self.getCars();
+        });
+    };
 }]);

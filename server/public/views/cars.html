@@ -1,6 +1,31 @@
 <h1>Cars</h1>
-<ul>
+<input type="text" placeholder="Year" ng-model="vm.newCar.year">
+<select ng-options="company.id as company.name for company in vm.companies.list track by company.id" ng-model="vm.newCar.company_id"></select>
+<input type="text" placeholder="Model" ng-model="vm.newCar.model">
+<input type="text" placeholder="Nickname" ng-model="vm.newCar.nickname">
+<button ng-click="vm.addCar(vm.newCar)">Submit</button>
+<!-- <ul>
     <li ng-repeat="car in vm.cars.list">
         {{car.year}}, {{car.name}}, {{car.model}}, {{car.nickname}}, {{car.country}}
     </li>
-</ul>
+</ul> -->
+<table>
+    <thead>
+        <tr>
+            <th>Year</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Nickname</th>
+            <th>Country</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="car in vm.cars.list">
+            <td>{{car.year}}</td>
+            <td>{{car.name}}</td>
+            <td>{{car.model}}</td>
+            <td>{{car.nickname}}</td>
+            <td>{{car.country}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -22,10 +22,11 @@ app.service('CompanyService', ['$http', function($http) {
         $http({
             method: 'POST',
             url: '/companies',
-            data: self.newCompany
+            data: newCompany
         }).then(function(response) {
             console.log('response', response);
             self.newCompany = {};
+            self.getCompanies();
         });
     };
 }]);
