@@ -3,6 +3,8 @@ app.service('CompanyService', ['$http', function($http) {
 
     self.companies = { list: [] };
 
+    self.newCompany = {};
+
     self.getCompanies = function() {
         $http({
             method: 'GET',
@@ -16,14 +18,16 @@ app.service('CompanyService', ['$http', function($http) {
     
     self.getCompanies();
 
-    self.addCompany = function() {
+    self.addCompany = function(newCompany) {
         console.log('clicked');
-        
-        // $http({
-        //     method: 'POST',
-        //     url: '/companies'
-        // }).then(function(response) {
-        //     console.log('response', response);
-        // });
+
+        $http({
+            method: 'POST',
+            url: '/companies',
+            data: newCompany
+        }).then(function(response) {
+            console.log('response', response);
+            self.newCompany = {};
+        });
     }
 }]);

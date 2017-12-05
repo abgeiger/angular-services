@@ -7,6 +7,6 @@
     </li>
 </ul>
 
-<input type="text" placeholder="company">
-<input type="text" placeholder="country">
+<input type="text" placeholder="company" ng-model="vm.newCompany.name">
+<input type="text" placeholder="country" ng-model="vm.newCompany.country">
 <button ng-click="vm.addCompany()">Submit</button>
