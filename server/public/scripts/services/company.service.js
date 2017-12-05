@@ -24,7 +24,7 @@ app.service('CompanyService', ['$http', function($http) {
         $http({
             method: 'POST',
             url: '/companies',
-            data: newCompany
+            data: self.newCompany
         }).then(function(response) {
             console.log('response', response);
             self.newCompany = {};

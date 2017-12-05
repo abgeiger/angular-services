@@ -22,12 +22,13 @@ router.get('/', function (req, res) {
 });
 
 router.post('/', function (req, res) {
+    var newCompany = req.body;
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
             console.log('error', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query('SELECT * FROM company ORDER BY id;', function (errorMakingDatabaseQuery, result) {
+            client.query(`INSERT INTO company (name, country) VALUES ($1, $2);`, [newCompany.name, newCompany.country], function (errorMakingDatabaseQuery, result) {
                 done();
                 if (errorMakingDatabaseQuery) {
                     console.log('error', errorMakingDatabaseQuery);
