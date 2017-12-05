@@ -1,2 +1,6 @@
-<h1>About Page</h1>
-<div>{{vm.message}}</div>
+<h1>Cars</h1>
+<ul>
+    <li ng-repeat="car in vm.cars.list">
+        {{car.year}}, {{car.name}}, {{car.model}}, {{car.nickname}}, {{car.country}}
+    </li>
+</ul>

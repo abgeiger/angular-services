@@ -19,8 +19,6 @@ app.service('CompanyService', ['$http', function($http) {
     self.getCompanies();
 
     self.addCompany = function(newCompany) {
-        console.log('clicked');
-
         $http({
             method: 'POST',
             url: '/companies',
@@ -29,5 +27,5 @@ app.service('CompanyService', ['$http', function($http) {
             console.log('response', response);
             self.newCompany = {};
         });
-    }
+    };
 }]);
